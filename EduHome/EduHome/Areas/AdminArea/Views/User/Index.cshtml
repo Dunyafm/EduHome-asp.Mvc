@@ -1,0 +1,67 @@
+﻿@model UserVM
+@{ 
+    int count = 1;
+    
+
+}
+
+<div class="container">
+    <h2>Active Users</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">UserName</th>
+                <th scope="col">Mail</th>
+                
+                <th scope="col">DeActivate User</th>
+                <th scope="col">Change Role</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var activeUser in Model.activeUsers)
+            {
+            <tr>
+                <th scope="row">@count</th>
+                <td>@activeUser.UserName</td>
+                <td>@activeUser.Email</td>
+                
+                
+                <td><a asp-action="ChangeStatus" asp-route-id="@activeUser.Id"><i class="icon-close" style="font-size:20px;color:green"></i></a></td>
+                <td><a asp-action="ChangeRole" asp-route-id="@activeUser.Id"><i class="icon-refresh" style="font-size:20px;color:green"></i></a></td>
+            </tr>
+                count++;
+            }
+        </tbody>
+    </table>
+
+    <h2 class="mt-5">Deactive Users</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">UserName</th>
+                <th scope="col">Mail</th>
+              
+                <th scope="col">Activate User</th>
+                <th scope="col">Change Role</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var deactiveUser in Model.deactiveUsers)
+            {
+            <tr>
+                <th scope="row">@count</th>
+                <td>@deactiveUser.UserName</td>
+                <td>@deactiveUser.Email</td>
+                
+                <td><a asp-action="ChangeStatus" asp-route-id="@deactiveUser.Id"><i class="icon-check" style="font-size:20px;color:red"></i></a></td>
+                <td><a asp-action="ChangeRole" asp-route-id="@deactiveUser.Id"><i class="icon-refresh" style="font-size:20px;color:green"></i></a></td>
+            </tr>
+                count++;
+            }
+        </tbody>
+    </table>
+</div>
+

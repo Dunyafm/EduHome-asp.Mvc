@@ -1,0 +1,40 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<!-- Background Area Start -->
+@await Component.InvokeAsync("Slider")
+<!-- Background Area End -->
+<!-- Service Start -->
+@await Component.InvokeAsync("Service");
+<!-- Service End -->
+<!-- About Start -->
+@await Component.InvokeAsync("About");
+<!-- About End -->
+<!-- Courses Area Start -->
+<div class="courses-area two pt-150 pb-150 text-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="section-title">
+                    <img src="~/assets/img/icon/section1.png" alt="section-title">
+                    <h2>COURSES WE OFFER</h2>
+                </div>
+            </div>
+        </div>
+        @await Component.InvokeAsync("CourseCatagory", 3)
+    </div>
+</div>
+<!-- Courses Area End -->
+<!-- Notice Start -->
+@await Component.InvokeAsync("Notice");
+<!-- Notice End -->
+<!-- Event Area Start -->
+@await Component.InvokeAsync("Event");
+<!-- Event Area End -->
+<!-- Testimonial Area Start -->
+@await Component.InvokeAsync("Testimonial");
+<!-- Testimonial Area End -->
+<!-- Blog Area Start -->
+@await Component.InvokeAsync("Blog",6);
+<!-- Blog Area End -->
